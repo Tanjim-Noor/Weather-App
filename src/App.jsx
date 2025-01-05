@@ -1,12 +1,18 @@
 import "./App.css";
-
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
+import Weather from "./components/weather_comp";
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </div>
-    </>
+    <div>
+      <QueryClientProvider client={queryClient}></QueryClientProvider>
+      <Weather/>
+      <QueryClientProvider/>
+    </div>
   );
 }
 
